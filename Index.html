@@ -1,0 +1,160 @@
+<html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroEco Pro - Manejo Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><i class="fa-solid fa-leaf"></i> Agro<span>Eco Pro</span></div>
+        <nav>
+            <ul>
+                <li><a href="#clima"><i class="fa-solid fa-cloud-sun"></i> Clima Regional</a></li>
+                <li><a href="#diagnostico"><i class="fa-solid fa-heart-pulse"></i> Saúde do Solo</a></li>
+                <li><a href="#calculadora"><i class="fa-solid fa-calculator"></i> Eco-Calculadora</a></li>
+                <li><a href="#alertas"><i class="fa-solid fa-bell"></i> Mural Verde</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="clima" class="section-container">
+            <h2><i class="fa-solid fa-cloud-sun-rain"></i> Simulador de Clima e Manejo Regional</h2>
+            <p class="subtitle">Selecione a sua região para adaptar as estratégias de produção ao ecossistema local.</p>
+            
+            <div class="clima-box">
+                <div class="input-group center-input">
+                    <label for="regiao-select">Escolha sua Região:</label>
+                    <select id="regiao-select">
+                        <option value="">-- Selecione uma Região --</option>
+                        <option value="sul">Sul (Frio / Umidade Variada)</option>
+                        <option value="sudeste">Sudeste (Temperado / Transição)</option>
+                        <option value="centro-oeste">Centro-Oeste (Quente / Seca Sazonal)</option>
+                        <option value="nordeste">Nordeste (Semiárido / Alta Insolação)</option>
+                        <option value="norte">Norte (Equatorial / Alta Pluviosidade)</option>
+                    </select>
+                </div>
+                
+                <div id="clima-resultado" class="clima-grid hidden">
+                    <div class="clima-card">
+                        <i class="fa-solid fa-temperature-half icon-clima text-orange"></i>
+                        <h4>Condição Média</h4>
+                        <p id="temp-val">--</p>
+                    </div>
+                    <div class="clima-card">
+                        <i class="fa-solid fa-droplet icon-clima text-blue"></i>
+                        <h4>Foco de Preservação</h4>
+                        <p id="foco-val">--</p>
+                    </div>
+                    <div class="clima-card em-destaque">
+                        <i class="fa-solid fa-circle-check icon-clima text-green"></i>
+                        <h4>Recomendação Eco-Agrícola</h4>
+                        <p id="clima-recomenda">Aguardando seleção...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diagnostico" class="section-container bg-light">
+            <h2><i class="fa-solid fa-seedling"></i> Diagnóstico Ecológico do Solo</h2>
+            <p class="subtitle">Analise a qualidade biológica da sua terra para reduzir o uso de insumos químicos.</p>
+            
+            <div class="diag-wrapper">
+                <div class="diag-form">
+                    <div class="input-group">
+                        <label for="pergunta-palha">O solo possui cobertura de palha ou matéria seca?</label>
+                        <select id="pergunta-palha">
+                            <option value="5">Sim, cobertura total (Excelente)</option>
+                            <option value="3">Parcialmente descoberto</option>
+                            <option value="0">Não, solo totalmente exposto</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="pergunta-insetos">Com que frequência você observa minhocas ou insetos benéficos na terra?</label>
+                        <select id="pergunta-insetos">
+                            <option value="5">Sempre visíveis ao manejar (Solo Vivo)</option>
+                            <option value="2">Raramente aparecem</option>
+                            <option value="0">Nunca vejo sinais de vida</option>
+                        </select>
+                    </div>
+                    <button id="btn-diagnostico" class="btn-main">Analisar Saúde da Terra</button>
+                </div>
+                
+                <div id="diag-resultado" class="diag-resultado-box hidden">
+                    <h3>Resultado da Análise:</h3>
+                    <div class="score-container">
+                        <span id="score-val">0/10</span>
+                        <p id="score-status">Status</p>
+                    </div>
+                    <p id="score-dica">Dica de manejo aqui...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="calculadora" class="section-container">
+            <div class="calc-wrapper">
+                <div class="calc-info">
+                    <h2><i class="fa-solid fa-hand-holding-droplet"></i> Simulador de Economia Hídrica</h2>
+                    <p>Calcule o impacto positivo do gotejamento tecnológico e acompanhe o acumulado da sua fazenda.</p>
+                    
+                    <div class="historico-box">
+                        <h4><i class="fa-solid fa-history"></i> Relatório de Poupança Ambiental</h4>
+                        <ul id="historico-lista">
+                            <li class="vazio">Nenhum cálculo salvo ainda.</li>
+                        </ul>
+                        <button id="btn-limpar-historico" class="btn-sub hidden">Limpar Registros</button>
+                    </div>
+                </div>
+                
+                <div class="calc-box">
+                    <div class="input-group">
+                        <label for="hectares">Tamanho da Plantação (Hectares):</label>
+                        <input type="number" id="hectares" placeholder="Ex: 8" min="1">
+                    </div>
+                    <button id="btn-calcular" class="btn-main">Simular e Gravar Dados</button>
+                    
+                    <div id="resultado-calc" class="result-box hidden">
+                        <h3>Água Preservada no Mês:</h3>
+                        <p id="litros-economizados">0 litros</p>
+                        <span class="eco-dica">Protege o equivalente a <b id="piscinas">0</b> piscinas olímpicas em recursos hídricos.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="alertas" class="section-container bg-light">
+            <h2><i class="fa-solid fa-bullhorn"></i> Mural de Avisos Ecológicos</h2>
+            <p class="subtitle">Alertas automáticos para manter a produção em sincronia com as leis da natureza.</p>
+            
+            <div class="mural-grid">
+                <div class="mural-card aviso-verde">
+                    <div class="mural-header">
+                        <span class="mural-tag">Manejo Integrado</span>
+                        <span class="mural-data">Ativo</span>
+                    </div>
+                    <h4>Alerta de Polinizadores</h4>
+                    <p>Período de alta atividade das abelhas nativas. Suspenda manejos mecânicos barulhentos nas bordaduras durante a manhã para garantir a fertilização natural das flores.</p>
+                </div>
+                <div class="mural-card aviso-azul">
+                    <div class="mural-header">
+                        <span class="mural-tag">Logística Reversa</span>
+                        <span class="mural-data">Aviso Geral</span>
+                    </div>
+                    <h4>Descarte Consciente</h4>
+                    <p>Lembrete automático: Organize o armazenamento correto de embalagens de defensivos e bioinsumos usados. A devolução correta protege as nascentes de água da sua região.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgroEco Pro - Produção forte e meio ambiente protegido em equilíbrio.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
